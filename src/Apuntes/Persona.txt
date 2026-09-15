@@ -1,0 +1,44 @@
+
+class Index{
+    #valorPrivado="secreto";
+    #nombre;
+    constructor(nombre){
+        //Indica que esta trabajado con todos los elementos de la clase el THISSS
+        // Unicamente clasee
+
+        //Cada que recibas una
+
+        //Funcionnes=Métodos
+        //Variables=Propiedades
+        this.#nombrenombre = nombre,
+        this.#valorPrivado="otro dato"
+    }
+  
+    mostrarDatos(){
+        //va a vivir dentro de este espacio de funcion
+        let saludo ="Hola";
+        console.log(`
+            Nombre:${this.nombre}
+            ${saludo}       
+        `);
+    }
+    
+    //GET PARA TRAER
+    getValorPrivado(){
+        return this.#valorPrivado
+    }
+
+    getNombre(){
+        return this.#nombre
+    }
+
+
+}
+
+//  Variable   nueva instancia
+
+// let persona1 = new Index ("Faty");
+// console.log(persona1.nombre);
+
+//Para exportar
+export default Persona;
