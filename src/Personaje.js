@@ -4,9 +4,11 @@ class Personaje{
     #ki=100;
     #energia=100;
     #semilla=2;
+    #personaje;
     #nombre;
-    constructor(nombre){
+    constructor(nombre,personaje){
         this.#nombre=nombre;  
+        this.#personaje= personaje;
         this.mostrarEstadisticas()
     }
 
@@ -14,6 +16,7 @@ class Personaje{
         //Este método pertenece a cada objeto
         console.log(`
             nombre:${this.#nombre},
+
             *************************
             vida:${this.#vida},
             ki:${this.#ki},
@@ -22,6 +25,9 @@ class Personaje{
         `);
     }
   // GET Dame la vida que tengo guardada dentro del atributo privado
+    getPersonaje(){
+        return this.#personaje;
+    }
     getVida(){
         return this.#vida;
     }

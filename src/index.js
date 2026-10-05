@@ -3,6 +3,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import Swal from "sweetalert2";
 import Acciones from "./Acciones.js";
+import {atk_basico} from "./interfaz.js";
 const btn_player1 = document.getElementById("btn_player1");
 const btn_player2 = document.getElementById("btn_player2");
 const player1 = document.getElementById("py1");
@@ -16,6 +17,13 @@ const img1=document.getElementById("img1");
 const username2 = document.getElementById("username2");
 const personaje2 = document.getElementById("personaje2");
 const img2 = document.getElementById("img2");
+//Jugador1
+const energia1 =document.getElementById("energia1");
+const ki1=document.getElementById("ki1");
+
+//jugador2
+const vida2 =document.getElementById("vida2");
+
 
 let pj1 = "", pj2 = "";
 let jugador1, jugador2;
@@ -28,7 +36,17 @@ const iniciar_juego = () =>{
     personaje2.innerText = pj2;
     img2.src = `./public/img/${pj2}/base.png`;
 }
+//Barra de personajes
+const barras = ()=>{
+    energia1.style.width=`${jugador1.getEnergia()}%`;
+    energia1.innerText=`${jugador1.getEnergia()}%`;
+    ki1.style.width=`${jugador1.getEnergia()}%`;
+    ki1.innerText=`${jugador1.getEnergia()}%`;
+    //Jugador2
+    vida2.style.width=`${jugador1.getVida()}%`;
+    vida2.innerText=`${jugador1.getVida()}%`;
 
+}
 nombre1.addEventListener("input",(event) =>{
     event.target.value = event.target.value.replace(/[^a-zA-Z0-9]+/,"");
 });
@@ -74,7 +92,7 @@ btn_player1.addEventListener("click",() =>{
     }else if(pj1 == ""){
         return msj_error("El jugador 1 debe seleccionar un personaje!");
     }
-    jugador1 = new Acciones(nombre1.value);
+    jugador1 = new Acciones(nombre1.value,pj1);
     nombre1.disabled=true;
     player1.classList.add("d-none");
     if(jugador1 && jugador2){
@@ -92,8 +110,15 @@ btn_player2.addEventListener("click",() =>{
     }else if(pj2 == ""){
         return msj_error("El jugador 2 debe seleccionar un personaje!");
     }
-    jugador2 = new Acciones(nombre2.value);
+    jugador2 = new Acciones(nombre2.value,pj2);
     nombre2.disabled=true;
     player2.classList.add("d-none");
     iniciar_juego();
+});
+
+[...document.getElementById("btn_py1").querySelectorAll("button")].map((boton) => {
+    boton.addEventListener("click",()=>{
+        atk_basico(jugador1,jugador2);
+        barras();
+        })
 });
