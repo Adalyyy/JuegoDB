@@ -91,3 +91,23 @@ const atk_especial = (j1, j2) => {
 };
 
 export {atk_especial};
+
+const carga_energia = (j1) => {
+    j1.cargaEnergia();
+
+    Swal.fire({
+        text: "¡Recuperando energía!",
+        title: "Cargar Ki",
+        imageUrl: `./public/img/${j1.getPersonaje()}/base.png`,
+        imageWidth: 300,
+        imageHeight: 300,
+        position: "center-center",
+        width: 600,
+        color: "#fff",
+        background: "none",
+        showConfirmButton: false,
+        timer: 1500
+    });
+};
+
+export {carga_energia};

@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import Acciones from "./Acciones.js";
 import {atk_basico} from "./interfaz.js";
 import {atk_especial} from "./interfaz.js";
+import {carga_energia} from "./interfaz.js";
 const btn_player1 = document.getElementById("btn_player1");
 const btn_player2 = document.getElementById("btn_player2");
 //
@@ -18,7 +19,6 @@ const atkE2 = document.getElementById("atkE2");
 const atkC2 = document.getElementById("atkC2");
 const atkS2 = document.getElementById("atkS2");
 
-btn_py1
 const player1 = document.getElementById("py1");
 const player2 = document.getElementById("py2");
 const nombre1 = document.getElementById("player1");
@@ -151,6 +151,11 @@ btn_player2.addEventListener("click",() =>{
             atk_especial(jugador1,jugador2);
         }
 
+        if(boton.id == "atkC1"){
+            carga_energia(jugador1);
+        }
+
+
         barras();
     });
 });
@@ -164,6 +169,10 @@ btn_player2.addEventListener("click",() =>{
 
         if(boton.id == "atkE2"){
             atk_especial(jugador2,jugador1);
+        }
+
+        if(boton.id == "atkC2"){
+            carga_energia(jugador2);
         }
 
         barras();
