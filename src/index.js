@@ -62,6 +62,8 @@ const barras = ()=>{
     ki1.innerText=`${jugador1.getEnergia()}%`;
     vida1.style.width=`${jugador1.getVida()}%`;
     vida1.innerText=`${jugador1.getVida()}%`;
+    const badgeS1 = atkS1.querySelector(".badge");
+    atkS1.disabled = jugador1.getSemilla() <= 0 ? true : false;
     //Jugador2
     energia2.style.width=`${jugador2.getEnergia()}%`;
     energia2.innerText=`${jugador2.getEnergia()}%`;
@@ -69,6 +71,8 @@ const barras = ()=>{
     ki2.innerText=`${jugador2.getEnergia()}%`;
     vida2.style.width=`${jugador2.getVida()}%`;
     vida2.innerText=`${jugador2.getVida()}%`;
+    const badgeS2 = atkS2.querySelector(".badge");
+    atkS2.disabled = jugador2.getSemilla() <= 0 ? true : false;
 
 }
 nombre1.addEventListener("input",(event) =>{
@@ -155,6 +159,10 @@ btn_player2.addEventListener("click",() =>{
             carga_energia(jugador1);
         }
 
+         if(boton.id == "atkS1"){
+            usar_semilla(jugador1);
+        }
+
 
         barras();
     });
@@ -173,6 +181,10 @@ btn_player2.addEventListener("click",() =>{
 
         if(boton.id == "atkC2"){
             carga_energia(jugador2);
+        }
+
+        if(boton.id == "atkS2"){
+            usar_semilla(jugador2);
         }
 
         barras();
