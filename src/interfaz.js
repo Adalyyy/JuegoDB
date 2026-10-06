@@ -70,3 +70,24 @@ const atk_basico = (j1, j2) => {
   });
 };
 export {atk_basico}
+const atk_especial = (j1, j2) => {
+    j1.atkEspecial();
+    j2.setVida(j2.getVida() - 20 < 1 ? 0 : j2.getVida() - 20);
+
+    Swal.fire({
+        text: atributosPersonaje[j1.getPersonaje()].atk_especial,
+        title: "Ataque Especial",
+        imageUrl: `./public/img/${j1.getPersonaje()}/especial.png`,
+        imageWidth: 300,
+        imageHeight: 300,
+        position: "center-center",
+        width: 600,
+        color: "#fff",
+        background: "none",
+        imageAlt: "Ataque Especial",
+        showConfirmButton: false,
+        timer: 1500
+    });
+};
+
+export {atk_especial};

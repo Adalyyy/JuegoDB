@@ -4,8 +4,21 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import Swal from "sweetalert2";
 import Acciones from "./Acciones.js";
 import {atk_basico} from "./interfaz.js";
+import {atk_especial} from "./interfaz.js";
 const btn_player1 = document.getElementById("btn_player1");
 const btn_player2 = document.getElementById("btn_player2");
+//
+const atkB1 = document.getElementById("atkB1");
+const atkE1 = document.getElementById("atkE1");
+const atkC1 = document.getElementById("atkC1");
+const atkS1 = document.getElementById("atkS1");
+//
+const atkB2 = document.getElementById("atkB2");
+const atkE2 = document.getElementById("atkE2");
+const atkC2 = document.getElementById("atkC2");
+const atkS2 = document.getElementById("atkS2");
+
+btn_py1
 const player1 = document.getElementById("py1");
 const player2 = document.getElementById("py2");
 const nombre1 = document.getElementById("player1");
@@ -20,9 +33,13 @@ const img2 = document.getElementById("img2");
 //Jugador1
 const energia1 =document.getElementById("energia1");
 const ki1=document.getElementById("ki1");
+const vida1 =document.getElementById("vida1");
 
 //jugador2
+const energia2 =document.getElementById("energia2");
+const ki2=document.getElementById("ki2");
 const vida2 =document.getElementById("vida2");
+
 
 
 let pj1 = "", pj2 = "";
@@ -38,13 +55,20 @@ const iniciar_juego = () =>{
 }
 //Barra de personajes
 const barras = ()=>{
+    //Jugador1
     energia1.style.width=`${jugador1.getEnergia()}%`;
     energia1.innerText=`${jugador1.getEnergia()}%`;
     ki1.style.width=`${jugador1.getEnergia()}%`;
     ki1.innerText=`${jugador1.getEnergia()}%`;
+    vida1.style.width=`${jugador1.getVida()}%`;
+    vida1.innerText=`${jugador1.getVida()}%`;
     //Jugador2
-    vida2.style.width=`${jugador1.getVida()}%`;
-    vida2.innerText=`${jugador1.getVida()}%`;
+    energia2.style.width=`${jugador2.getEnergia()}%`;
+    energia2.innerText=`${jugador2.getEnergia()}%`;
+    ki2.style.width=`${jugador2.getEnergia()}%`;
+    ki2.innerText=`${jugador2.getEnergia()}%`;
+    vida2.style.width=`${jugador2.getVida()}%`;
+    vida2.innerText=`${jugador2.getVida()}%`;
 
 }
 nombre1.addEventListener("input",(event) =>{
@@ -118,7 +142,30 @@ btn_player2.addEventListener("click",() =>{
 
 [...document.getElementById("btn_py1").querySelectorAll("button")].map((boton) => {
     boton.addEventListener("click",()=>{
-        atk_basico(jugador1,jugador2);
+
+        if(boton.id == "atkB1"){
+            atk_basico(jugador1,jugador2);
+        }
+
+        if(boton.id == "atkE1"){
+            atk_especial(jugador1,jugador2);
+        }
+
         barras();
-        })
+    });
+});
+
+[...document.getElementById("btn_py2").querySelectorAll("button")].map((boton) => {
+    boton.addEventListener("click",()=>{
+
+        if(boton.id == "atkB2"){
+            atk_basico(jugador2,jugador1);
+        }
+
+        if(boton.id == "atkE2"){
+            atk_especial(jugador2,jugador1);
+        }
+
+        barras();
+    });
 });
