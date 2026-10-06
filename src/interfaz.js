@@ -8,13 +8,13 @@ const atributosPersonaje={
     },
 
     "Cell":{
-        atk_basico:"Toma eso!",
+        atk_basico:"kame Hame Ha!",
         atk_especial:"Kame Hame Ha!",
         fondo: "rgba(237,22,7,0.5)",
     },
 
     "Gogueta":{
-        atk_basico:"Haaah!",
+        atk_basico:"kame Hame Ha!",
         atk_especial:"Mueree!",
         fondo: "rgba(237,22,7,0.5)",
     },
